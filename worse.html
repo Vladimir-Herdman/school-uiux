@@ -5,9 +5,16 @@
 	<style>
 		body {
 			background-color: plum;
+			width: 100%;
+			height: fit-content;
 		}
+        nav {
+			position: relative;
+            width: 90vw;
+			height: 20px;
+            padding: 10px;
+        }
 		img {
-			border: 5px solid blue;
 			width: 90%;
 			height: 200px;
 		}
@@ -30,10 +37,23 @@
 		#right {
 			margin-left: 80%;
 		}
+		#tag {
+			position: absolute;
+			right: 0;
+			width: fit-content;
+			display: none;
+		}
+		#og-tag {
+			width: fit-content;
+		}
 	</style>
 	<!-- <link rel="stylesheet" href="./public/stylesheets/style.css"> -->
 </head>
 <body>
+    <nav>
+        <a href="" id="og-tag">Link to Basic Page</a>
+		<a href="./index.html" id="tag">Gotta try harder than that</a>
+    </nav>
 	<div class="centered">
 		<img src="BusinessSelf.JPG">
 		<p>Vladimir (Vova) Herdman</p>
@@ -44,3 +64,16 @@
 	<p id="right">Rock Climbing, Reading</p>
 	<p id="bottom">I almost worked for a knife sales company. Might have been a pyramid scheme?</p>
 </body>
+<script>
+	const tag = document.getElementById("tag");
+	const og_tag = document.getElementById("og-tag");
+
+	og_tag.addEventListener("mouseover", () => {
+		og_tag.style.display = "none";
+		tag.style.display = "block";
+	});
+	tag.addEventListener("mouseover", () => {
+		tag.style.display = "none";
+		og_tag.style.display = "block";
+	});
+</script>
